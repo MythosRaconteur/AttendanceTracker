@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>URIs</key>
+	<dict>
+		<key>EnvironmentBasePRODURL</key>
+		<string>https://www.mythosproductions.com/AttendanceTracker/api/v1/</string>
+		<key>EnvironmentBaseDEVURL</key>
+		<string>http://localhost:8888/AttendanceTracker/api/v1/</string>
+		<key>EndPoints</key>
+		<dict>
+			<key>User</key>
+			<dict>
+				<key>Login</key>
+				<string>user/login</string>
+				<key>Logout</key>
+				<string>user/logout</string>
+				<key>Register</key>
+				<string>user/register</string>
+			</dict>
+			<key>Student</key>
+			<dict>
+				<key>AllStudents</key>
+				<string>student</string>
+				<key>AddStudent</key>
+				<string>student/add</string>
+				<key>ArchiveStudent</key>
+				<string>student/archive/?</string>
+				<key>DeleteStudent</key>
+				<string>student/delete/?</string>
+			</dict>
+			<key>Course</key>
+			<dict>
+				<key>AllCourses</key>
+				<string>course</string>
+				<key>AddCourse</key>
+				<string>course/add</string>
+				<key>ArchiveCourse</key>
+				<string>course/archive/?</string>
+				<key>DeleteCourse</key>
+				<string>course/delete/?</string>
+			</dict>
+		</dict>
+	</dict>
+</dict>
+</plist>
