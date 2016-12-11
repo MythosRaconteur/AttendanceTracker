@@ -28,6 +28,8 @@
 		0E2BAA831D2DD0CC0092E58A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E2BAA761D2DD00A0092E58A /* Alamofire.framework */; };
 		0E2BAA841D2DD0CC0092E58A /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0E2BAA761D2DD00A0092E58A /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0E9986F41D2D83170031B0E8 /* ATSettingsAdapater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9986F31D2D83170031B0E8 /* ATSettingsAdapater.swift */; };
+		0EB2E4631DFA42B00095AA26 /* ATStudentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB2E4621DFA42B00095AA26 /* ATStudentDetailViewController.swift */; };
+		0EB2E4661DFC95940095AA26 /* ATPrefsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB2E4651DFC95940095AA26 /* ATPrefsViewController.swift */; };
 		0EB626FA1C932B32007C84F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EB626F91C932B32007C84F8 /* Assets.xcassets */; };
 		0EB627101C932E16007C84F8 /* ATAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB627051C932E16007C84F8 /* ATAppDelegate.swift */; };
 		0EB627111C932E16007C84F8 /* AttendanceTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0EB627071C932E16007C84F8 /* AttendanceTracker.xcdatamodeld */; };
@@ -129,6 +131,8 @@
 		0E2BAA691D2DCE6D0092E58A /* ATDataBrokerBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATDataBrokerBase.swift; sourceTree = "<group>"; };
 		0E2BAA6B1D2DD00A0092E58A /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		0E9986F31D2D83170031B0E8 /* ATSettingsAdapater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATSettingsAdapater.swift; sourceTree = "<group>"; };
+		0EB2E4621DFA42B00095AA26 /* ATStudentDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATStudentDetailViewController.swift; sourceTree = "<group>"; };
+		0EB2E4651DFC95940095AA26 /* ATPrefsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATPrefsViewController.swift; sourceTree = "<group>"; };
 		0EB626EC1C932B32007C84F8 /* AttendanceTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AttendanceTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EB626F91C932B32007C84F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0EB626FE1C932B32007C84F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -281,6 +285,8 @@
 				0E0D6A291D2EBC3600CFBF7A /* ATCheckInViewController.swift */,
 				0E0D6A4F1D306AF500CFBF7A /* ATCourseDetailViewController.swift */,
 				0E0D6A2D1D2EBC5000CFBF7A /* ATCourseListViewController.swift */,
+				0EB2E4651DFC95940095AA26 /* ATPrefsViewController.swift */,
+				0EB2E4621DFA42B00095AA26 /* ATStudentDetailViewController.swift */,
 				0E0D6A2B1D2EBC4700CFBF7A /* ATStudentListViewController.swift */,
 			);
 			path = ViewControllers;
@@ -432,11 +438,13 @@
 				0E0D6A391D2EBE1500CFBF7A /* ATCourseTableCell.swift in Sources */,
 				0E0D6A4E1D30561800CFBF7A /* ATUserDataBroker.swift in Sources */,
 				0E0D6A2E1D2EBC5000CFBF7A /* ATCourseListViewController.swift in Sources */,
+				0EB2E4631DFA42B00095AA26 /* ATStudentDetailViewController.swift in Sources */,
 				0E0D6A2C1D2EBC4700CFBF7A /* ATStudentListViewController.swift in Sources */,
 				0E9986F41D2D83170031B0E8 /* ATSettingsAdapater.swift in Sources */,
 				0E0D6A431D2EBEF700CFBF7A /* ATCourse.swift in Sources */,
 				0E2BAA6A1D2DCE6D0092E58A /* ATDataBrokerBase.swift in Sources */,
 				0E0D6A411D2EBEEB00CFBF7A /* ATStudent.swift in Sources */,
+				0EB2E4661DFC95940095AA26 /* ATPrefsViewController.swift in Sources */,
 				0E0D6A471D2EEB8F00CFBF7A /* ATCourseDataBroker.swift in Sources */,
 				0E0D6A3D1D2EBE2A00CFBF7A /* ATTableCell.swift in Sources */,
 				0EB627101C932E16007C84F8 /* ATAppDelegate.swift in Sources */,

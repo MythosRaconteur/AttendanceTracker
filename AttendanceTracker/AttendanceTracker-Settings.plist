@@ -5,9 +5,9 @@
 	<key>URIs</key>
 	<dict>
 		<key>EnvironmentBasePRODURL</key>
-		<string>https://www.mythosproductions.com/AttendanceTracker/api/v1/</string>
+		<string>http://www.mythosproductions.com/AttendanceTracker/api/v1/</string>
 		<key>EnvironmentBaseDEVURL</key>
-		<string>http://localhost:8888/AttendanceTracker/api/v1/</string>
+		<string>http://www.mythosproductions.com/AttendanceTracker/api/v1/</string>
 		<key>EndPoints</key>
 		<dict>
 			<key>User</key>

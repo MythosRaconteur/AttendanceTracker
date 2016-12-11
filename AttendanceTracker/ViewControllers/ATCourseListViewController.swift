@@ -19,6 +19,18 @@ class ATCourseListViewController: UIViewController, UITableViewDelegate, UITable
         let broker = ATCourseDataBroker.init(forRequestor: self)
         broker.fetchAll()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = false
+        
+        super.viewWillDisappear(animated)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

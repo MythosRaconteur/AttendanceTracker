@@ -6,11 +6,12 @@
     },
     {
       "idiom" : "universal",
+      "filename" : "StudentIcon2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "icon_training.png",
+      "filename" : "StudentIcon3x.png",
       "scale" : "3x"
     }
   ],

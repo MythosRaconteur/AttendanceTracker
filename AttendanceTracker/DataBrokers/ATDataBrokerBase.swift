@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import Foundation
 
 protocol DataBrokerRequestor {
     func brokerRequestComplete(_ resultArray: Array<ATModelBase>)
@@ -57,28 +58,35 @@ class ATDataBrokerBase : NSObject {
     //  MARK: - API
     
     func requestFromEndPoint(_ atURL: String) {
+        print(atURL)
         if (appDelegate.isConnectedToInternet()) {
-            Alamofire.request(.GET, atURL).validate().responseJSON { response in
+            Alamofire.request(atURL).validate().responseJSON { response in
                 switch response.result {
                     case .success:
-                        if var resultDict : Dictionary<String, AnyObject> = (response.result.value as! Dictionary<String, AnyObject>) {
-                            if resultDict["resultCode"] as! Int == 1 {
-                                resultDict["resultArray"] = self.handleResultArray(resultDict["resultArray"] as! Array<Dictionary<String, AnyObject>>)
-                                
-                                self.requestor!.brokerRequestComplete(resultDict["resultArray"] as! Array<ATModelBase>)
-                            }
+                        var resultDict = response.result.value as! Dictionary<String, AnyObject>
+                        
+                        if resultDict["resultCode"] as! Int == 1 {
+                            let objArray = self.handleResultArray(resultDict["resultArray"] as! Array<Dictionary<String, AnyObject>>)
+                            
+                            resultDict["resultArray"] = objArray as AnyObject?
+                            
+                            self.requestor!.brokerRequestComplete(resultDict["resultArray"] as! Array<ATModelBase>)
                         }
+                    
+                        break
                     case .failure(let error):
                         print("ERROR: \(error)")
+                    
+                        break
                 }
             }
         }
     }
     
     func submitToEndPoint(_ atURL: String, withJSONData: [String : AnyObject]) {
-        if (appDelegate.isConnectedToInternet()) {
-            Alamofire.request(.POST, atURL, parameters: withJSONData, encoding: .json)
-        }
+//        if (appDelegate.isConnectedToInternet()) {
+//            Alamofire.request(atURL, method: .post parameters: withJSONData, encoding: .json)
+//        }
     }
     
     func fetchAll() {

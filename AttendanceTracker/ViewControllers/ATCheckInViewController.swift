@@ -11,14 +11,31 @@ import UIKit
 class ATCheckInViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource, DataBrokerRequestor {
 
     @IBOutlet weak var coursePicker: UIPickerView!
-    @IBOutlet weak var allClassesToggleButton: UIButton!
+    @IBOutlet weak var classSelectButton: UIButton!
     @IBOutlet weak var studentTableView: UITableView!
+    @IBOutlet weak var classPickerHeightContstraint: NSLayoutConstraint!
+    @IBOutlet weak var dimView: UIView!
+    
+    var courseArray = [ATCourse]()
+    var selectedCourse: ATCourse?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let broker = ATCourseDataBroker.init(forRequestor: self)
         broker.fetchAll()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = false
+        
+        super.viewWillDisappear(animated)
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,18 +44,30 @@ class ATCheckInViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-    @IBAction func handleAllClassToggleButtonPressed(_ sender: UIButton) {
+    // MARK: - Event Handlers
+    
+    @IBAction func handleClassSelectButtonPressed(_ sender: UIButton) {
+        self.classPickerHeightContstraint.constant = 132
+        self.view.setNeedsLayout()
         
+        UIView.animate(withDuration: 0.5, animations: {
+            self.view.layoutIfNeeded()
+            self.dimView.alpha = 1.0
+        })
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.selectedCourse = self.courseArray[row]
+        
+        self.classPickerHeightContstraint.constant = 0
+        self.view.setNeedsLayout()
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.layoutIfNeeded()
+            self.dimView.alpha = 0.0
+        })
+        
+        self.updateClassSelectButton()
     }
     
     
@@ -62,20 +91,59 @@ class ATCheckInViewController: UIViewController, UITableViewDelegate, UITableVie
     //  MARK: - UIPickerViewDelegate implementation
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 0
+        return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 0
+        return self.courseArray.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        var label = view as! UILabel!
+        
+        if label == nil {
+            label = UILabel()
+        }
+        
+        let title = NSAttributedString(string: self.getTitleFor(course: self.courseArray[row]), attributes: [NSFontAttributeName: UIFont(name: "Futura-Medium", size: 16)!])
+        
+        label?.attributedText = title
+        label?.textAlignment = .center
+        
+        return label!
     }
     
     
     //  MARK: - DataBrokerRequestor implementation
+    
     func brokerRequestFailed(_ error: NSError) {
         print("ERROR: \(error)")
     }
     
     func brokerRequestComplete(_ resultArray: Array<ATModelBase>) {
-        print("RESULT: \(resultArray)")
+        self.courseArray = resultArray as! [ATCourse]
+    }
+    
+    
+    // MARK: - Private Methods
+    
+    func getTitleFor(course: ATCourse) -> String {
+        let df = DateFormatter()
+        df.dateFormat = "E M/d @ h:mm a"
+        
+        return "\(course.name) - \(df.string(from: course.time!))"
+    }
+    
+    func updateClassSelectButton() {
+        var str = "SELECT CLASS"
+        
+        self.classSelectButton.titleLabel?.font = UIFont(name: "Futura-Medium", size: 20)
+        
+        if let course = self.selectedCourse {
+            str = self.getTitleFor(course: course)
+            self.classSelectButton.titleLabel?.font = UIFont(name: "Futura-Medium", size: 14)
+        }
+        
+        self.classSelectButton.setTitle(str, for: .normal)
     }
 }
