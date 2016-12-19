@@ -22,7 +22,25 @@ class ATCourseDataBroker: ATDataBrokerBase {
         return modelObj
     }
     
+    func getCoursesSortedByDay() {
+        self.requestFromEndPoint(ATSettingsAdapter.CoursesSortedByDayURI())
+    }
+    
     func save(_ course: ATCourse) {
         
+    }
+    
+    func checkInStudents(_ studentArray: Array<ATStudent>, forCourse: ATCourse) {
+        var studentDict = [String: Any]()
+        var studentDictArray = [[String: Any]]()
+
+        for student in studentArray {
+            studentDictArray.append(self.convertToDictionary(student))
+        }
+        
+        studentDict["studentArray"] = studentDictArray
+        studentDict["courseID"] = forCourse.id
+        
+        self.submitToEndPoint(ATSettingsAdapter.CheckInStudentsURI(), withJSONData: studentDict)
     }
 }

@@ -83,13 +83,34 @@ class ATDataBrokerBase : NSObject {
         }
     }
     
-    func submitToEndPoint(_ atURL: String, withJSONData: [String : AnyObject]) {
-//        if (appDelegate.isConnectedToInternet()) {
-//            Alamofire.request(atURL, method: .post parameters: withJSONData, encoding: .json)
-//        }
+    func submitToEndPoint(_ atURL: String, withJSONData: [String : Any]) {
+        if (appDelegate.isConnectedToInternet()) {
+            Alamofire.request(atURL, method: .post, parameters: withJSONData, encoding: URLEncoding.default).response { response in
+                print("\n\nRequest: \(response.request)")
+                print("\n\nResponse: \(response.response)")
+                print("\n\nError: \(response.error)")
+                
+                if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
+                    print("\n\nData: \(utf8Text)")
+                }
+            }
+        }
     }
     
     func fetchAll() {
         self.requestFromEndPoint(self.basicFetchURL())
+    }
+    
+    func convertToDictionary(_ anObject: ATModelBase) -> [String: Any] {
+        let bizarroObject = Mirror(reflecting: anObject)
+        var jsonDict = [String: Any]()
+            
+        for child in bizarroObject.children {
+            if let key = child.label {
+                jsonDict[key] = child.value
+            }
+        }
+        
+        return jsonDict
     }
 }

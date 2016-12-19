@@ -15,15 +15,18 @@ class ATCheckInViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var studentTableView: UITableView!
     @IBOutlet weak var classPickerHeightContstraint: NSLayoutConstraint!
     @IBOutlet weak var dimView: UIView!
+    @IBOutlet weak var doneButton: UIButton!
     
     var courseArray = [ATCourse]()
+    var studentArray = [ATStudent]()
+    
     var selectedCourse: ATCourse?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let broker = ATCourseDataBroker.init(forRequestor: self)
-        broker.fetchAll()
+        broker.getCoursesSortedByDay()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,39 +59,45 @@ class ATCheckInViewController: UIViewController, UITableViewDelegate, UITableVie
         })
     }
     
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        self.selectedCourse = self.courseArray[row]
+    @IBAction func handleDoneButtonPressed(_ sender: UIButton) {
+        let checkedInStudentsArray = self.studentArray.filter { (student) in
+            student.isCheckedIn
+        }
         
-        self.classPickerHeightContstraint.constant = 0
-        self.view.setNeedsLayout()
-        
-        UIView.animate(withDuration: 0.3, animations: {
-            self.view.layoutIfNeeded()
-            self.dimView.alpha = 0.0
-        })
-        
-        self.updateClassSelectButton()
+        let broker = ATCourseDataBroker(forRequestor: self)
+        broker.checkInStudents(checkedInStudentsArray, forCourse: self.selectedCourse!)
     }
     
     
     //  MARK: - UITableViewDelegate/DataSource implementation
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return self.studentArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell: PokemonTableCell = tableView.dequeueReusableCellWithIdentifier("pokemonTableCellID")! as! PokemonTableCell
-//        
-//        cell.model = pokemonArray[indexPath.row] as? Pokemon
-//        
-//        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "StudentCheckInCell") as! ATStudentCheckInTableCell
         
-        return UITableViewCell.init()
+        cell.model = self.studentArray[indexPath.row]
+        cell.accessoryType = cell.model.isCheckedIn ? .checkmark : .none
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! ATStudentCheckInTableCell
+        
+        cell.select()
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! ATStudentCheckInTableCell
+        
+        cell.deselect()
     }
     
     
-    //  MARK: - UIPickerViewDelegate implementation
+    //  MARK: - UIPickerViewDataSource/Delegate implementation
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -105,12 +114,29 @@ class ATCheckInViewController: UIViewController, UITableViewDelegate, UITableVie
             label = UILabel()
         }
         
-        let title = NSAttributedString(string: self.getTitleFor(course: self.courseArray[row]), attributes: [NSFontAttributeName: UIFont(name: "Futura-Medium", size: 16)!])
+        let title = NSAttributedString(string: self.courseArray[row].displayString(), attributes: [NSFontAttributeName: UIFont(name: "Futura-Medium", size: 16)!])
         
         label?.attributedText = title
         label?.textAlignment = .center
         
         return label!
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.selectedCourse = self.courseArray[row]
+        
+        self.classPickerHeightContstraint.constant = 0
+        self.view.setNeedsLayout()
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.layoutIfNeeded()
+            self.dimView.alpha = 0.0
+        })
+        
+        self.updateClassSelectButton()
+        
+        let broker = ATStudentDataBroker.init(forRequestor: self)
+        broker.getStudentsForCourse(self.selectedCourse!)
     }
     
     
@@ -121,26 +147,30 @@ class ATCheckInViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func brokerRequestComplete(_ resultArray: Array<ATModelBase>) {
-        self.courseArray = resultArray as! [ATCourse]
+        if resultArray.count > 0 {
+            if resultArray[0] is ATCourse {
+                self.courseArray = resultArray as! [ATCourse]
+                
+                self.pickerView(self.coursePicker, didSelectRow: 0, inComponent: 0)
+            }
+            else {
+                self.studentArray = resultArray as! [ATStudent]
+                
+                self.studentTableView.reloadData()
+            }
+        }
     }
     
     
     // MARK: - Private Methods
     
-    func getTitleFor(course: ATCourse) -> String {
-        let df = DateFormatter()
-        df.dateFormat = "E M/d @ h:mm a"
-        
-        return "\(course.name) - \(df.string(from: course.time!))"
-    }
-    
-    func updateClassSelectButton() {
+    private func updateClassSelectButton() {
         var str = "SELECT CLASS"
         
         self.classSelectButton.titleLabel?.font = UIFont(name: "Futura-Medium", size: 20)
         
         if let course = self.selectedCourse {
-            str = self.getTitleFor(course: course)
+            str = course.displayString()
             self.classSelectButton.titleLabel?.font = UIFont(name: "Futura-Medium", size: 14)
         }
         

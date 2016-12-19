@@ -60,8 +60,12 @@ class ATSettingsAdapter: NSObject {
         return EnvironmentBaseURL() + (StudentData().object(forKey: "AllStudents") as! String)
     }
     
-    class func AddStudentURI() -> String {
-        return EnvironmentBaseURL() + (StudentData().object(forKey: "AddStudent") as! String)
+    class func StudentsEnrolledInCourseURI(_ courseID: Int) -> String {
+        return EnvironmentBaseURL() + (StudentData().object(forKey: "StudentsEnrolledInCourse") as! String) + String(courseID)
+    }
+    
+    class func SaveStudentURI() -> String {
+        return EnvironmentBaseURL() + (StudentData().object(forKey: "SaveStudent") as! String)
     }
     
     class func ArchiveStudentURI() -> String {
@@ -83,6 +87,10 @@ class ATSettingsAdapter: NSObject {
         return EnvironmentBaseURL() + (CourseData().object(forKey: "AllCourses") as! String)
     }
     
+    class func CoursesSortedByDayURI() -> String {
+        return EnvironmentBaseURL() + (CourseData().object(forKey: "CoursesSortedByDay") as! String)
+    }
+    
     class func AddCourseURI() -> String {
         return EnvironmentBaseURL() + (CourseData().object(forKey: "AddCourse") as! String)
     }
@@ -93,5 +101,32 @@ class ATSettingsAdapter: NSObject {
     
     class func DeleteCourseURI() -> String {
         return EnvironmentBaseURL() + (CourseData().object(forKey: "DeleteCourse") as! String)
+    }
+    
+    class func CheckInStudentsURI() -> String {
+        return EnvironmentBaseURL() + (CourseData().object(forKey: "CheckInStudents") as! String)
+    }
+    
+    
+    //  MARK: - Groupon methods
+    
+    class func GrouponData() -> NSDictionary {
+        return EndPointData().object(forKey: "Groupon") as! NSDictionary
+    }
+    
+    class func AllGrouponsURI() -> String {
+        return EnvironmentBaseURL() + (GrouponData().object(forKey: "AllGroupons") as! String)
+    }
+    
+    class func GrouponByIDURI(_ grouponID: Int) -> String {
+        return EnvironmentBaseURL() + (GrouponData().object(forKey:  "GrouponByID") as! String) + String(grouponID)
+    }
+    
+    class func GrouponByCodeURI(_ grouponCode: String) -> String {
+        return EnvironmentBaseURL() + (GrouponData().object(forKey: "GrouponByCode") as! String) + grouponCode
+    }
+    
+    class func GrouponsForStudentURI(_ studentID: Int) -> String {
+        return EnvironmentBaseURL() + (GrouponData().object(forKey: "GrouponsForStudent") as! String) + String(studentID)
     }
 }

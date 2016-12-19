@@ -20,4 +20,18 @@ class ATStudentDataBroker: ATDataBrokerBase {
         
         return modelObj
     }
+    
+    func getStudentsForCourse(_ course: ATCourse) {
+        self.requestFromEndPoint(ATSettingsAdapter.StudentsEnrolledInCourseURI(course.id))
+    }
+    
+    func saveStudent(_ student: ATStudent) {
+        var json = self.convertToDictionary(student)
+        
+        json["hasSignedWaiver"] = student.hasSignedWaiver ? 1 : 0
+        json["hasCompletedFreeTrial"] = student.hasCompletedFreeTrial ? 1 : 0
+        json["gender"] = student.gender == .female ? 1 : 0
+        
+        self.submitToEndPoint(ATSettingsAdapter.SaveStudentURI(), withJSONData: json)
+    }
 }

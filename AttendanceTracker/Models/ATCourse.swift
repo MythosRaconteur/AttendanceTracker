@@ -24,4 +24,20 @@ class ATCourse: ATModelBase {
         time = dateFormatter.date(from: propertiesDictionary["class_time"] as! String)!
         recurring = NSString(string: (propertiesDictionary["is_recurring"] as! String)).boolValue
     }
+    
+    func displayString() -> String {
+        let df = DateFormatter()
+        var outStr = ""
+        
+        if self.recurring {
+            df.dateFormat = "EEEE"
+        }
+        else {
+            df.dateFormat = "E M/d @ h:mm a"
+        }
+        
+        outStr = df.string(from: self.time!)
+        
+        return "\(self.name) - \(outStr)"
+    }
 }

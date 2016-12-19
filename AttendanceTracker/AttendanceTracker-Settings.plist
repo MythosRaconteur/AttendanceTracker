@@ -10,6 +10,17 @@
 		<string>http://www.mythosproductions.com/AttendanceTracker/api/v1/</string>
 		<key>EndPoints</key>
 		<dict>
+			<key>Groupon</key>
+			<dict>
+				<key>AllGroupons</key>
+				<string>groupon</string>
+				<key>GrouponByID</key>
+				<string>groupon/</string>
+				<key>GrouponByCode</key>
+				<string>groupon/code/</string>
+				<key>GrouponsForStudent</key>
+				<string>groupon/student/</string>
+			</dict>
 			<key>User</key>
 			<dict>
 				<key>Login</key>
@@ -23,23 +34,29 @@
 			<dict>
 				<key>AllStudents</key>
 				<string>student</string>
-				<key>AddStudent</key>
-				<string>student/add</string>
+				<key>StudentsEnrolledInCourse</key>
+				<string>student/course/</string>
+				<key>SaveStudent</key>
+				<string>student/save</string>
 				<key>ArchiveStudent</key>
-				<string>student/archive/?</string>
+				<string>student/archive/</string>
 				<key>DeleteStudent</key>
-				<string>student/delete/?</string>
+				<string>student/delete/</string>
 			</dict>
 			<key>Course</key>
 			<dict>
 				<key>AllCourses</key>
 				<string>course</string>
+				<key>CoursesSortedByDay</key>
+				<string>coursesSortedByDay</string>
 				<key>AddCourse</key>
 				<string>course/add</string>
 				<key>ArchiveCourse</key>
-				<string>course/archive/?</string>
+				<string>course/archive/</string>
 				<key>DeleteCourse</key>
-				<string>course/delete/?</string>
+				<string>course/delete/</string>
+				<key>CheckInStudents</key>
+				<string>course/checkin/</string>
 			</dict>
 		</dict>
 	</dict>

@@ -11,17 +11,6 @@ import UIKit
 class ATCourseTableCell: ATTableCell {
     @IBOutlet weak var courseTitleLabel: UILabel!
     @IBOutlet weak var courseDateLabel: UILabel!
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
     
     var model: ATCourse {
         get {
@@ -36,5 +25,16 @@ class ATCourseTableCell: ATTableCell {
             df.dateFormat = "E M/d @ h:mma"
             self.courseDateLabel!.text = df.string(from: self.model.time! as Date)
         }
+    }
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
     }
 }

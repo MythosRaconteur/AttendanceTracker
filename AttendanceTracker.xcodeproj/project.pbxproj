@@ -11,7 +11,6 @@
 		0E0D6A2C1D2EBC4700CFBF7A /* ATStudentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0D6A2B1D2EBC4700CFBF7A /* ATStudentListViewController.swift */; };
 		0E0D6A2E1D2EBC5000CFBF7A /* ATCourseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0D6A2D1D2EBC5000CFBF7A /* ATCourseListViewController.swift */; };
 		0E0D6A391D2EBE1500CFBF7A /* ATCourseTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0D6A361D2EBE1500CFBF7A /* ATCourseTableCell.swift */; };
-		0E0D6A3A1D2EBE1500CFBF7A /* ATStudentCheckInTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0D6A371D2EBE1500CFBF7A /* ATStudentCheckInTableCell.swift */; };
 		0E0D6A3B1D2EBE1500CFBF7A /* ATStudentTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0D6A381D2EBE1500CFBF7A /* ATStudentTableCell.swift */; };
 		0E0D6A3D1D2EBE2A00CFBF7A /* ATTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0D6A3C1D2EBE2A00CFBF7A /* ATTableCell.swift */; };
 		0E0D6A3F1D2EBE7B00CFBF7A /* ATModelBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0D6A3E1D2EBE7B00CFBF7A /* ATModelBase.swift */; };
@@ -35,6 +34,13 @@
 		0EB627111C932E16007C84F8 /* AttendanceTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0EB627071C932E16007C84F8 /* AttendanceTracker.xcdatamodeld */; };
 		0EB627121C932E16007C84F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EB6270B1C932E16007C84F8 /* LaunchScreen.storyboard */; };
 		0EB627131C932E16007C84F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EB6270C1C932E16007C84F8 /* Main.storyboard */; };
+		0EBE240D1DFE4D7900091B11 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBE240C1DFE4D7900091B11 /* UIColorExtension.swift */; };
+		0EBE240F1DFF094700091B11 /* ATGrouponListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBE240E1DFF094700091B11 /* ATGrouponListViewController.swift */; };
+		0EBE24111DFF095600091B11 /* ATGrouponDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBE24101DFF095600091B11 /* ATGrouponDetailViewController.swift */; };
+		0EBE24131DFF3C6800091B11 /* ATGroupon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBE24121DFF3C6800091B11 /* ATGroupon.swift */; };
+		0EBE24151DFF446400091B11 /* ATGrouponDataBroker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBE24141DFF446400091B11 /* ATGrouponDataBroker.swift */; };
+		0EBE24171E00D10600091B11 /* ATGrouponTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBE24161E00D10600091B11 /* ATGrouponTableCell.swift */; };
+		0EDFD8151E033AFB00A379DB /* ATStudentCheckInTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDFD8141E033AFB00A379DB /* ATStudentCheckInTableCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,7 +121,6 @@
 		0E0D6A2B1D2EBC4700CFBF7A /* ATStudentListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATStudentListViewController.swift; sourceTree = "<group>"; };
 		0E0D6A2D1D2EBC5000CFBF7A /* ATCourseListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCourseListViewController.swift; sourceTree = "<group>"; };
 		0E0D6A361D2EBE1500CFBF7A /* ATCourseTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATCourseTableCell.swift; sourceTree = "<group>"; };
-		0E0D6A371D2EBE1500CFBF7A /* ATStudentCheckInTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATStudentCheckInTableCell.swift; sourceTree = "<group>"; };
 		0E0D6A381D2EBE1500CFBF7A /* ATStudentTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATStudentTableCell.swift; sourceTree = "<group>"; };
 		0E0D6A3C1D2EBE2A00CFBF7A /* ATTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATTableCell.swift; sourceTree = "<group>"; };
 		0E0D6A3E1D2EBE7B00CFBF7A /* ATModelBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATModelBase.swift; sourceTree = "<group>"; };
@@ -140,6 +145,13 @@
 		0EB627081C932E16007C84F8 /* AttendanceTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AttendanceTracker.xcdatamodel; sourceTree = "<group>"; };
 		0EB6270B1C932E16007C84F8 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0EB6270C1C932E16007C84F8 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		0EBE240C1DFE4D7900091B11 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		0EBE240E1DFF094700091B11 /* ATGrouponListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATGrouponListViewController.swift; sourceTree = "<group>"; };
+		0EBE24101DFF095600091B11 /* ATGrouponDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATGrouponDetailViewController.swift; sourceTree = "<group>"; };
+		0EBE24121DFF3C6800091B11 /* ATGroupon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATGroupon.swift; sourceTree = "<group>"; };
+		0EBE24141DFF446400091B11 /* ATGrouponDataBroker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATGrouponDataBroker.swift; sourceTree = "<group>"; };
+		0EBE24161E00D10600091B11 /* ATGrouponTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATGrouponTableCell.swift; sourceTree = "<group>"; };
+		0EDFD8141E033AFB00A379DB /* ATStudentCheckInTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATStudentCheckInTableCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,7 +170,8 @@
 			isa = PBXGroup;
 			children = (
 				0E0D6A361D2EBE1500CFBF7A /* ATCourseTableCell.swift */,
-				0E0D6A371D2EBE1500CFBF7A /* ATStudentCheckInTableCell.swift */,
+				0EBE24161E00D10600091B11 /* ATGrouponTableCell.swift */,
+				0EDFD8141E033AFB00A379DB /* ATStudentCheckInTableCell.swift */,
 				0E0D6A381D2EBE1500CFBF7A /* ATStudentTableCell.swift */,
 				0E0D6A3C1D2EBE2A00CFBF7A /* ATTableCell.swift */,
 			);
@@ -168,6 +181,7 @@
 		0E2BAA651D2DADB10092E58A /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				0EBE240C1DFE4D7900091B11 /* UIColorExtension.swift */,
 			);
 			name = Helpers;
 			path = DB/Helpers;
@@ -176,8 +190,9 @@
 		0E2BAA681D2DC19A0092E58A /* DataBrokers */ = {
 			isa = PBXGroup;
 			children = (
-				0E2BAA691D2DCE6D0092E58A /* ATDataBrokerBase.swift */,
 				0E0D6A461D2EEB8F00CFBF7A /* ATCourseDataBroker.swift */,
+				0E2BAA691D2DCE6D0092E58A /* ATDataBrokerBase.swift */,
+				0EBE24141DFF446400091B11 /* ATGrouponDataBroker.swift */,
 				0E0D6A4B1D3055DD00CFBF7A /* ATStudentDataBroker.swift */,
 				0E0D6A4D1D30561800CFBF7A /* ATUserDataBroker.swift */,
 			);
@@ -190,7 +205,7 @@
 				0E2BAA761D2DD00A0092E58A /* Alamofire.framework */,
 				0E2BAA781D2DD00A0092E58A /* Alamofire iOS Tests.xctest */,
 				0E2BAA7A1D2DD00A0092E58A /* Alamofire.framework */,
-				0E2BAA7C1D2DD00A0092E58A /* Alamofire OSX Tests.xctest */,
+				0E2BAA7C1D2DD00A0092E58A /* Alamofire macOS Tests.xctest */,
 				0E2BAA7E1D2DD00A0092E58A /* Alamofire.framework */,
 				0E2BAA801D2DD00A0092E58A /* Alamofire tvOS Tests.xctest */,
 				0E2BAA821D2DD00A0092E58A /* Alamofire.framework */,
@@ -262,9 +277,10 @@
 		0EB627091C932E16007C84F8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				0E0D6A421D2EBEF700CFBF7A /* ATCourse.swift */,
+				0EBE24121DFF3C6800091B11 /* ATGroupon.swift */,
 				0E0D6A3E1D2EBE7B00CFBF7A /* ATModelBase.swift */,
 				0E0D6A401D2EBEEB00CFBF7A /* ATStudent.swift */,
-				0E0D6A421D2EBEF700CFBF7A /* ATCourse.swift */,
 				0E0D6A441D2EBF0300CFBF7A /* ATUser.swift */,
 			);
 			path = Models;
@@ -285,6 +301,8 @@
 				0E0D6A291D2EBC3600CFBF7A /* ATCheckInViewController.swift */,
 				0E0D6A4F1D306AF500CFBF7A /* ATCourseDetailViewController.swift */,
 				0E0D6A2D1D2EBC5000CFBF7A /* ATCourseListViewController.swift */,
+				0EBE24101DFF095600091B11 /* ATGrouponDetailViewController.swift */,
+				0EBE240E1DFF094700091B11 /* ATGrouponListViewController.swift */,
 				0EB2E4651DFC95940095AA26 /* ATPrefsViewController.swift */,
 				0EB2E4621DFA42B00095AA26 /* ATStudentDetailViewController.swift */,
 				0E0D6A2B1D2EBC4700CFBF7A /* ATStudentListViewController.swift */,
@@ -329,11 +347,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Mythos Productions";
 				TargetAttributes = {
 					0EB626EB1C932B32007C84F8 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 5JH4Q58CFW;
 						LastSwiftMigration = 0810;
 					};
 				};
@@ -384,10 +403,10 @@
 			remoteRef = 0E2BAA791D2DD00A0092E58A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		0E2BAA7C1D2DD00A0092E58A /* Alamofire OSX Tests.xctest */ = {
+		0E2BAA7C1D2DD00A0092E58A /* Alamofire macOS Tests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = "Alamofire OSX Tests.xctest";
+			path = "Alamofire macOS Tests.xctest";
 			remoteRef = 0E2BAA7B1D2DD00A0092E58A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -440,19 +459,25 @@
 				0E0D6A2E1D2EBC5000CFBF7A /* ATCourseListViewController.swift in Sources */,
 				0EB2E4631DFA42B00095AA26 /* ATStudentDetailViewController.swift in Sources */,
 				0E0D6A2C1D2EBC4700CFBF7A /* ATStudentListViewController.swift in Sources */,
+				0EDFD8151E033AFB00A379DB /* ATStudentCheckInTableCell.swift in Sources */,
+				0EBE24131DFF3C6800091B11 /* ATGroupon.swift in Sources */,
 				0E9986F41D2D83170031B0E8 /* ATSettingsAdapater.swift in Sources */,
 				0E0D6A431D2EBEF700CFBF7A /* ATCourse.swift in Sources */,
 				0E2BAA6A1D2DCE6D0092E58A /* ATDataBrokerBase.swift in Sources */,
+				0EBE240F1DFF094700091B11 /* ATGrouponListViewController.swift in Sources */,
 				0E0D6A411D2EBEEB00CFBF7A /* ATStudent.swift in Sources */,
 				0EB2E4661DFC95940095AA26 /* ATPrefsViewController.swift in Sources */,
 				0E0D6A471D2EEB8F00CFBF7A /* ATCourseDataBroker.swift in Sources */,
 				0E0D6A3D1D2EBE2A00CFBF7A /* ATTableCell.swift in Sources */,
 				0EB627101C932E16007C84F8 /* ATAppDelegate.swift in Sources */,
-				0E0D6A3A1D2EBE1500CFBF7A /* ATStudentCheckInTableCell.swift in Sources */,
+				0EBE24151DFF446400091B11 /* ATGrouponDataBroker.swift in Sources */,
+				0EBE24111DFF095600091B11 /* ATGrouponDetailViewController.swift in Sources */,
 				0E0D6A4C1D3055DD00CFBF7A /* ATStudentDataBroker.swift in Sources */,
 				0E0D6A451D2EBF0300CFBF7A /* ATUser.swift in Sources */,
 				0E0D6A2A1D2EBC3600CFBF7A /* ATCheckInViewController.swift in Sources */,
+				0EBE24171E00D10600091B11 /* ATGrouponTableCell.swift in Sources */,
 				0E0D6A3B1D2EBE1500CFBF7A /* ATStudentTableCell.swift in Sources */,
+				0EBE240D1DFE4D7900091B11 /* UIColorExtension.swift in Sources */,
 				0E0D6A501D306AF500CFBF7A /* ATCourseDetailViewController.swift in Sources */,
 				0EB627111C932E16007C84F8 /* AttendanceTracker.xcdatamodeld in Sources */,
 			);
@@ -482,8 +507,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -527,8 +554,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -547,6 +576,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -555,8 +585,9 @@
 		0EB627021C932B33007C84F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				DEVELOPMENT_TEAM = 5JH4Q58CFW;
 				INFOPLIST_FILE = AttendanceTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mythosproductions.AttendanceTracker;
@@ -568,8 +599,9 @@
 		0EB627031C932B33007C84F8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				DEVELOPMENT_TEAM = 5JH4Q58CFW;
 				INFOPLIST_FILE = AttendanceTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mythosproductions.AttendanceTracker;
