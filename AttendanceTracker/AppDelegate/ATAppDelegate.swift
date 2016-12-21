@@ -24,6 +24,8 @@ class ATAppDelegate: UIResponder, UIApplicationDelegate {
         navigationBarAppearace.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Futura-Medium", size: 20)!]
         
         UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Futura-Medium", size: 16)!], for: .normal)
+        
+        self.window?.tintColor = UIColor.flakDarkTeal()
 
         return true
     }

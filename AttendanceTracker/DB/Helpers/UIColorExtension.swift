@@ -58,4 +58,16 @@ extension UIColor {
     class func flakGrouponGreen() -> UIColor {
         return UIColor(hexString: "#76B065FF")!
     }
+    
+    class func flakDarkTeal() -> UIColor {
+        return UIColor(hexString: "#64A0A0FF")!
+    }
+    
+    class func flakTeal() -> UIColor {
+        return UIColor(hexString: "#00A0A0FF")!
+    }
+    
+    class func flakBurgundy() -> UIColor {
+        return UIColor(hexString: "#A03030FF")!
+    }
 }

@@ -10,6 +10,12 @@ import UIKit
 import AVFoundation
 
 class ATGrouponDetailViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
+    @IBOutlet weak var grouponNumberTextField: UITextField!
+    @IBOutlet weak var numberSessionsTextField: UITextField!
+    @IBOutlet weak var purchaseDateButton: UIButton!
+    @IBOutlet weak var expirationDateButton: UIButton!
+    @IBOutlet weak var redeemedSwitch: UISwitch!
+    
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
     
@@ -27,55 +33,91 @@ class ATGrouponDetailViewController: UIViewController, AVCaptureMetadataOutputOb
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.captureSession = AVCaptureSession()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        let videoCaptureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
-        
-        let videoInput: AVCaptureDeviceInput?
-        
-        do {
-            videoInput = try AVCaptureDeviceInput(device: videoCaptureDevice)
-        }
-        catch {
-            return
-        }
-
-        if (self.captureSession.canAddInput(videoInput)) {
-            self.captureSession.addInput(videoInput)
+        if let grouponModel = self.model {
+            self.grouponNumberTextField.text = grouponModel.grouponNumber
+            self.numberSessionsTextField.text = String(grouponModel.sessionTotal)
+            
+            let df = DateFormatter()
+            df.dateFormat = "M/d/yyyy"
+            
+            self.purchaseDateButton.setTitle(df.string(from: grouponModel.purchaseDate!), for: .normal)
+            
+            var expStr = "NEVER"
+            
+            if let expDate = grouponModel.expirationDate {
+                expStr = df.string(from: expDate)
+            }
+            
+            self.expirationDateButton.setTitle(expStr, for: .normal)
+            
+            self.redeemedSwitch.isOn = grouponModel.hasBeenRedeemed
         }
         else {
-            self.scanningNotPossible()
-        }
-        
-        let metadataOutput = AVCaptureMetadataOutput()
-        
-        // Add output to the session.
-        if (self.captureSession.canAddOutput(metadataOutput)) {
-            self.captureSession.addOutput(metadataOutput)
+            self.captureSession = AVCaptureSession()
             
-            // Send captured data to the delegate object via a serial queue.
-            metadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
+            let videoCaptureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
             
-            // Set barcode types for which to scan
-            metadataOutput.metadataObjectTypes = [AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeUPCECode]
+            let videoInput: AVCaptureDeviceInput?
+            
+            do {
+                videoInput = try AVCaptureDeviceInput(device: videoCaptureDevice)
+            }
+            catch {
+                return
+            }
+            
+            if (self.captureSession.canAddInput(videoInput)) {
+                self.captureSession.addInput(videoInput)
+            }
+            else {
+                self.scanningNotPossible()
+            }
+            
+            let metadataOutput = AVCaptureMetadataOutput()
+            
+            // Add output to the session.
+            if (self.captureSession.canAddOutput(metadataOutput)) {
+                self.captureSession.addOutput(metadataOutput)
+                
+                // Send captured data to the delegate object via a serial queue.
+                metadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
+                
+                // Set barcode types for which to scan
+                metadataOutput.metadataObjectTypes = [AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeUPCECode]
+            }
+            else {
+                scanningNotPossible()
+            }
+            
+            self.previewLayer = AVCaptureVideoPreviewLayer(session: self.captureSession)
+            self.previewLayer.frame = CGRect(x: view.layer.bounds.origin.x, y: view.layer.bounds.origin.y, width: view.layer.bounds.size.width, height: 300)
+            self.previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
+            self.view.layer.addSublayer(previewLayer)
+            
+            // Begin the capture session.
+            self.captureSession.startRunning()
         }
-        else {
-            scanningNotPossible()
-        }
-        
-        self.previewLayer = AVCaptureVideoPreviewLayer(session: self.captureSession)
-        self.previewLayer.frame = CGRect(x: view.layer.bounds.origin.x, y: view.layer.bounds.origin.y, width: view.layer.bounds.size.width, height: 300)
-        self.previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
-        self.view.layer.addSublayer(previewLayer)
-        
-        // Begin the capture session.
-        self.captureSession.startRunning()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    // MARK: - Event Handlers
+    
+    @IBAction func handlePurchaseDateButtonPressed(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func handleExpirationDateButtonPressed(_ sender: UIButton) {
+        
     }
     
     

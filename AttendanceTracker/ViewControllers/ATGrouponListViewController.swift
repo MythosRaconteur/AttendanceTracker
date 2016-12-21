@@ -27,8 +27,6 @@ class ATGrouponListViewController: UIViewController, UITableViewDataSource, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.retrieveGroupons()
-        
         let rb = UIBarButtonItem.init(title: "+", style: UIBarButtonItemStyle.done, target: self, action: #selector(handleAddButtonPressed))
         
         self.navigationItem.rightBarButtonItem = rb
@@ -61,6 +59,15 @@ class ATGrouponListViewController: UIViewController, UITableViewDataSource, UITa
         cell.model = self.model!.groupons[indexPath.row]
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let groupon = self.model?.groupons[indexPath.row]
+        let grouponDetailVC = self.storyboard?.instantiateViewController(withIdentifier: "GrouponDetailVC") as! ATGrouponDetailViewController
+        
+        grouponDetailVC.model = groupon
+        
+        self.navigationController?.pushViewController(grouponDetailVC, animated: true)
     }
     
     // MARK: - DataBrokerRequestor implementation

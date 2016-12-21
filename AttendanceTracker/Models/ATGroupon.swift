@@ -38,4 +38,12 @@ class ATGroupon: ATModelBase {
         
         self.hasBeenRedeemed = Int(propertiesDictionary["is_redeemed"] as! String)! == 1
     }
+    
+    func isValid() -> Bool {
+        if self.expirationDate != nil {
+            return self.expirationDate! >= Date() && self.sessionUsedCount < self.sessionTotal
+        }
+        
+        return self.sessionUsedCount < self.sessionTotal
+    }
 }

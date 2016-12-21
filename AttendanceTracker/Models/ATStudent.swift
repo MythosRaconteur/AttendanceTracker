@@ -1,3 +1,4 @@
+
 //
 //  ATStudent.swift
 //  AttendanceTracker
@@ -20,6 +21,7 @@ class ATStudent: ATModelBase {
     
     var notes: String = ""
     var groupons: [ATGroupon] = [ATGroupon]()
+    var activeGroupon: ATGroupon?
     var isCheckedIn: Bool = false
     
     override func initFromProperties(_ propertiesDictionary: Dictionary<String, AnyObject>) {
@@ -39,6 +41,17 @@ class ATStudent: ATModelBase {
         self.dateJoined = dateFormatter.date(from: propertiesDictionary["date_joined"] as! String)!
         
         self.notes = propertiesDictionary["notes"] as! String
+        
+        for grouponDict in propertiesDictionary["groupons"] as! Array<Dictionary<String, AnyObject>> {
+            let groupon = ATGroupon()
+            
+            groupon.initFromProperties(grouponDict)
+            self.groupons.append(groupon)
+            
+            if self.activeGroupon == nil && groupon.isValid() {
+                self.activeGroupon = groupon
+            }
+        }
     }
     
     func fullName() -> String {
