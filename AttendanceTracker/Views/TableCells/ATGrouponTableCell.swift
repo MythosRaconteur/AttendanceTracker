@@ -29,9 +29,9 @@ class ATGrouponTableCell: ATTableCell {
             self.grouponPurchaseDateLabel.text = df.string(from: newValue.purchaseDate!)
             
             if !newValue.isValid() {
-                self.grouponCodeLabel.textColor = UIColor.flakLightGray()
-                self.grouponTypeLabel.textColor = UIColor.flakLightGray()
-                self.grouponPurchaseDateLabel.textColor = UIColor.flakLightGray()
+                self.grouponCodeLabel.textColor = UIColor.flakLightGray
+                self.grouponTypeLabel.textColor = UIColor.flakLightGray
+                self.grouponPurchaseDateLabel.textColor = UIColor.flakLightGray
             }
         }
     }

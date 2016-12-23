@@ -19,13 +19,13 @@ class ATAppDelegate: UIResponder, UIApplicationDelegate {
         let navigationBarAppearace = UINavigationBar.appearance()
         
         navigationBarAppearace.tintColor = UIColor.white
-        navigationBarAppearace.barTintColor = UIColor.flakBrown()
+        navigationBarAppearace.barTintColor = UIColor.flakBrown
         
         navigationBarAppearace.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Futura-Medium", size: 20)!]
         
         UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Futura-Medium", size: 16)!], for: .normal)
         
-        self.window?.tintColor = UIColor.flakDarkTeal()
+        self.window?.tintColor = UIColor.flakTeal
 
         return true
     }

@@ -24,16 +24,16 @@ class ATStudentTableCell: ATTableCell {
             
             self.nameLabel!.text = newValue.fullName()
             
-            self.nameLabel.textColor = (newValue.isMale()) ? UIColor.flakMaleBlue() : UIColor.flakFemalePink()
+            self.nameLabel.textColor = (newValue.isMale()) ? UIColor.flakMaleBlue : UIColor.flakFemalePink
             
             let df = DateFormatter()
             df.dateFormat = "M/d/yy"
             
             self.dateJoinedLabel.text = df.string(from: newValue.dateJoined)
             
-            self.waiverLabel.textColor = (newValue.hasSignedWaiver) ? UIColor.black : UIColor.flakLightGray()
+            self.waiverLabel.textColor = (newValue.hasSignedWaiver) ? UIColor.black : UIColor.flakLightGray
             
-            self.freeTrialLabel.textColor = (newValue.hasCompletedFreeTrial) ? UIColor.black : UIColor.flakLightGray()
+            self.freeTrialLabel.textColor = (newValue.hasCompletedFreeTrial) ? UIColor.black : UIColor.flakLightGray
         }
     }
     

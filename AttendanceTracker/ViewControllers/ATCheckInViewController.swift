@@ -22,6 +22,7 @@ class ATCheckInViewController: UIViewController, UITableViewDelegate, UITableVie
     
     var selectedCourse: ATCourse?
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -94,6 +95,20 @@ class ATCheckInViewController: UIViewController, UITableViewDelegate, UITableVie
         let cell = tableView.cellForRow(at: indexPath) as! ATStudentCheckInTableCell
         
         cell.deselect()
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let viewAction = UITableViewRowAction(style: .normal, title: "View") { action, indPath in
+            self.showStudentDetail(self.studentArray[indPath.row])
+        }
+        
+        viewAction.backgroundColor = UIColor.flakDarkTeal
+        
+        return [viewAction]
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
     }
     
     
@@ -175,5 +190,13 @@ class ATCheckInViewController: UIViewController, UITableViewDelegate, UITableVie
         }
         
         self.classSelectButton.setTitle(str, for: .normal)
+    }
+    
+    private func showStudentDetail(_ student: ATStudent) {
+        let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "StudentDetailVC") as! ATStudentDetailViewController
+        
+        detailVC.model = student
+        
+        self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }

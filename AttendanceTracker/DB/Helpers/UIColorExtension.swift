@@ -35,39 +35,39 @@ extension UIColor {
         return nil
     }
     
-    class func flakBrown() -> UIColor {
+    class var flakBrown: UIColor {
         return UIColor(hexString: "#804000FF")!
     }
     
-    class func flakRed() -> UIColor {
+    class var flakRed: UIColor {
         return UIColor(hexString: "#800000FF")!
     }
     
-    class func flakLightGray() -> UIColor {
+    class var flakLightGray: UIColor {
         return UIColor(hexString: "#DDDDDDFF")!
     }
     
-    class func flakMaleBlue() -> UIColor {
+    class var flakMaleBlue: UIColor {
         return UIColor(hexString: "#0080FFFF")!
     }
     
-    class func flakFemalePink() -> UIColor {
+    class var flakFemalePink: UIColor {
         return UIColor(hexString: "#FF66FFFF")!
     }
     
-    class func flakGrouponGreen() -> UIColor {
+    class var flakGrouponGreen: UIColor {
         return UIColor(hexString: "#76B065FF")!
     }
     
-    class func flakDarkTeal() -> UIColor {
+    class var flakDarkTeal: UIColor {
         return UIColor(hexString: "#64A0A0FF")!
     }
     
-    class func flakTeal() -> UIColor {
+    class var flakTeal: UIColor {
         return UIColor(hexString: "#00A0A0FF")!
     }
     
-    class func flakBurgundy() -> UIColor {
+    class var flakBurgundy: UIColor {
         return UIColor(hexString: "#A03030FF")!
     }
 }

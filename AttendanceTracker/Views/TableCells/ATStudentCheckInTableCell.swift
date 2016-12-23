@@ -24,7 +24,7 @@ class ATStudentCheckInTableCell: ATTableCell {
             
             self.nameLabel!.text = newValue.fullName()
             
-            self.nameLabel.textColor = (newValue.isMale()) ? UIColor.flakMaleBlue() : UIColor.flakFemalePink()
+            self.nameLabel.textColor = (newValue.isMale()) ? UIColor.flakMaleBlue : UIColor.flakFemalePink
             
             let xPoint = self.contentView.frame.origin.x + self.contentView.frame.size.width - 50
             let yPoint = (self.contentView.frame.origin.y + self.contentView.frame.size.height) / 2
@@ -35,13 +35,9 @@ class ATStudentCheckInTableCell: ATTableCell {
             shapeLayer.path = circlePath.cgPath
             
             //change the fill color
-            shapeLayer.fillColor = (newValue.hasSignedWaiver) ? UIColor.flakGrouponGreen().cgColor : UIColor.flakLightGray().cgColor
+            shapeLayer.fillColor = (newValue.hasSignedWaiver) ? UIColor.flakTeal.cgColor : UIColor.flakLightGray.cgColor
             
             self.contentView.layer.addSublayer(shapeLayer)
-            
-//            self.waiverLabel.textColor = (newValue.hasSignedWaiver) ? UIColor.black : UIColor.flakLightGray()
-//            
-//            self.freeTrialLabel.textColor = (newValue.hasCompletedFreeTrial) ? UIColor.black : UIColor.flakLightGray()
         }
     }
 

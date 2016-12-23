@@ -152,7 +152,7 @@
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MmD-Vo-g3R">
                                 <rect key="frame" x="0.0" y="461" width="320" height="50"/>
-                                <color key="backgroundColor" red="0.50196081400000003" green="0.25098040700000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.62745098040000002" green="0.18823529410000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="AGk-z6-zqA"/>
                                 </constraints>
@@ -628,6 +628,23 @@
             </objects>
             <point key="canvasLocation" x="1245" y="-224"/>
         </scene>
+        <!--Item-->
+        <scene sceneID="ZIX-oS-oBA">
+            <objects>
+                <navigationController id="pGx-3J-NBM" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="lOO-8O-cuJ"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vW8-VJ-dtG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="igm-F1-Sj9" kind="relationship" relationship="rootViewController" id="DfA-vD-dAf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8lK-Yf-dlu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1245" y="-912"/>
+        </scene>
         <!--Check In-->
         <scene sceneID="fe1-Br-c3o">
             <objects>
@@ -640,12 +657,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="chb-eo-gIe">
-                                <rect key="frame" x="0.0" y="78" width="320" height="441"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.46655607876712329" colorSpace="calibratedWhite"/>
-                            </view>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RMD-x6-262">
-                                <rect key="frame" x="0.0" y="28" width="320" height="0.0"/>
+                                <rect key="frame" x="0.0" y="72" width="320" height="0.0"/>
                                 <constraints>
                                     <constraint firstAttribute="height" id="dsd-yt-7sb"/>
                                 </constraints>
@@ -655,8 +668,8 @@
                                 </connections>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LDF-6p-Cdg">
-                                <rect key="frame" x="0.0" y="28" width="320" height="50"/>
-                                <color key="backgroundColor" red="0.3921568627" green="0.62745098040000002" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="0.0" y="72" width="320" height="50"/>
+                                <color key="backgroundColor" red="0.62745098040000002" green="0.18823529410000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="ILN-d3-Myq"/>
                                 </constraints>
@@ -668,7 +681,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tj9-W2-f1C">
-                                <rect key="frame" x="0.0" y="86" width="320" height="367"/>
+                                <rect key="frame" x="0.0" y="130" width="320" height="323"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="StudentCheckInCell" id="2AC-vW-bIu" customClass="ATStudentCheckInTableCell" customModule="AttendanceTracker" customModuleProvider="target">
@@ -718,6 +731,10 @@
                                     <action selector="handleDoneButtonPressed:" destination="igm-F1-Sj9" eventType="touchUpInside" id="7PR-j1-NuJ"/>
                                 </connections>
                             </button>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="chb-eo-gIe">
+                                <rect key="frame" x="0.0" y="122" width="320" height="397"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.46655607876712329" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -741,6 +758,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Check In" image="CheckmarkIconBW" selectedImage="CheckmarkIcon" id="E1B-IE-eyB"/>
+                    <navigationItem key="navigationItem" id="DSV-6G-7dS"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="classPickerHeightContstraint" destination="dsd-yt-7sb" id="dzA-qh-lju"/>
@@ -753,7 +771,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2eU-Gd-uXB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1243.125" y="-929.57746478873241"/>
+            <point key="canvasLocation" x="2001" y="-912"/>
         </scene>
         <!--Classes-->
         <scene sceneID="kNZ-uq-jAA">
@@ -834,7 +852,7 @@
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="thm-Nh-Sue">
                                 <rect key="frame" x="0.0" y="461" width="320" height="50"/>
-                                <color key="backgroundColor" red="0.50053852796554565" green="0.25033366680145264" blue="0.0036539242137223482" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.62745098040000002" green="0.18823529410000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Z0H-Bn-dHB"/>
                                 </constraints>
@@ -888,7 +906,7 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lj9-Uy-fQC">
                                 <rect key="frame" x="0.0" y="123" width="320" height="50"/>
-                                <color key="backgroundColor" red="0.50196081400000003" green="0.25098040700000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.62745098040000002" green="0.18823529410000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="3oS-9A-Ukf"/>
                                 </constraints>
@@ -1001,7 +1019,7 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="igm-F1-Sj9" kind="relationship" relationship="viewControllers" id="aDJ-PM-ia2"/>
+                        <segue destination="pGx-3J-NBM" kind="relationship" relationship="viewControllers" id="Nyb-lr-55H"/>
                         <segue destination="6b4-HB-Awf" kind="relationship" relationship="viewControllers" id="tyZ-Yw-4jR"/>
                         <segue destination="HfI-l4-E8w" kind="relationship" relationship="viewControllers" id="d0o-yv-BB6"/>
                         <segue destination="MXm-wJ-MgM" kind="relationship" relationship="viewControllers" id="D3S-54-BVI"/>
