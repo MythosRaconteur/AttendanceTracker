@@ -111,6 +111,12 @@ class ATDataBrokerBase : NSObject {
             }
         }
         
+        for child in (bizarroObject.superclassMirror?.children)! {
+            if let key = child.label {
+                jsonDict[key] = child.value
+            }
+        }
+        
         return jsonDict
     }
 }

@@ -19,9 +19,9 @@ class ATCheckInViewController: UIViewController, UITableViewDelegate, UITableVie
     
     var courseArray = [ATCourse]()
     var studentArray = [ATStudent]()
-    
     var selectedCourse: ATCourse?
     
+    private var editingIndexPath: IndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +34,12 @@ class ATCheckInViewController: UIViewController, UITableViewDelegate, UITableVie
         super.viewWillAppear(animated)
         
         self.navigationController?.navigationBar.isHidden = true
+        
+        if let ip = editingIndexPath {
+            editingIndexPath = nil
+            
+            self.studentTableView.reloadRows(at: [ip], with: .none)
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -99,6 +105,7 @@ class ATCheckInViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let viewAction = UITableViewRowAction(style: .normal, title: "View") { action, indPath in
+            self.editingIndexPath = indexPath
             tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.none)
             self.showStudentDetail(self.studentArray[indPath.row])
         }

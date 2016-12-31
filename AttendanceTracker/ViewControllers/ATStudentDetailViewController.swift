@@ -102,7 +102,10 @@ class ATStudentDetailViewController: UIViewController, UIImagePickerControllerDe
         self.model!.phoneNumber = self.phoneNumberTextField.text!
         self.model!.gender = self.maleButton.isSelected ? Gender.male : Gender.female
         self.model!.notes = self.notesTextField.text!
-        self.model!.dateJoined = Date()
+        
+        if self.model!.isNew() {
+            self.model!.dateJoined = Date()
+        }
         
         let broker = ATStudentDataBroker(forRequestor: self)
         broker.saveStudent(self.model!)
