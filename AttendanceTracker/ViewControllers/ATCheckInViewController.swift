@@ -99,6 +99,7 @@ class ATCheckInViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let viewAction = UITableViewRowAction(style: .normal, title: "View") { action, indPath in
+            tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.none)
             self.showStudentDetail(self.studentArray[indPath.row])
         }
         
@@ -162,17 +163,15 @@ class ATCheckInViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func brokerRequestComplete(_ resultArray: Array<ATModelBase>) {
-        if resultArray.count > 0 {
-            if resultArray[0] is ATCourse {
-                self.courseArray = resultArray as! [ATCourse]
+        if resultArray.count > 0 && resultArray[0] is ATCourse {
+            self.courseArray = resultArray as! [ATCourse]
                 
-                self.pickerView(self.coursePicker, didSelectRow: 0, inComponent: 0)
-            }
-            else {
-                self.studentArray = resultArray as! [ATStudent]
+            self.pickerView(self.coursePicker, didSelectRow: 0, inComponent: 0)
+        }
+        else {
+            self.studentArray = resultArray as! [ATStudent]
                 
-                self.studentTableView.reloadData()
-            }
+            self.studentTableView.reloadData()
         }
     }
     

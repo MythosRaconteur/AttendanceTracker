@@ -50,7 +50,11 @@ class ATCourseDetailViewController: UIViewController, DataBrokerRequestor {
         self.view.layoutIfNeeded()
         
         if (isSelectingDate) {
-            let buttonTitle: String = "SET TO:  " + df.string(from: (self.model?.time)! as Date)
+            var buttonTitle: String = "SELECT DATE"
+            
+            if !self.model!.isNew() {
+                buttonTitle = "SET TO:  " + df.string(from: (self.model?.time)! as Date)
+            }
             
             UIView.animate(withDuration: 0.5, animations: {
                 self.datePickerContainerHeightConstraint.constant = 150

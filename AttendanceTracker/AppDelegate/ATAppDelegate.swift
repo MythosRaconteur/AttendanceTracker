@@ -19,7 +19,7 @@ class ATAppDelegate: UIResponder, UIApplicationDelegate {
         let navigationBarAppearace = UINavigationBar.appearance()
         
         navigationBarAppearace.tintColor = UIColor.white
-        navigationBarAppearace.barTintColor = UIColor.flakBrown
+        navigationBarAppearace.barTintColor = UIColor.flakDarkTeal
         
         navigationBarAppearace.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Futura-Medium", size: 20)!]
         

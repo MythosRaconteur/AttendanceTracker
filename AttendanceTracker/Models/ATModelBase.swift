@@ -27,4 +27,8 @@ class ATModelBase: NSObject {
     func save() {
         let db: ATDataBrokerBase = self.dataBroker()
     }
+    
+    func isNew() -> Bool {
+        return self.id == 0
+    }
 }
