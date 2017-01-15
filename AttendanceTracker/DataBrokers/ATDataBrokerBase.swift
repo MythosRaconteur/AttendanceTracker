@@ -85,6 +85,10 @@ class ATDataBrokerBase : NSObject {
     
     func submitToEndPoint(_ atURL: String, withJSONData: [String : Any]) {
         if (appDelegate.isConnectedToInternet()) {
+            var req = URLRequest(url: URL(string: ATSettingsAdapter.CheckInStudentsURI())!)
+            req.httpMethod = "POST"
+            req.httpBody = try! JSONSerialization.data(withJSONObject: withJSONData)
+
             Alamofire.request(atURL, method: .post, parameters: withJSONData, encoding: URLEncoding.default).response { response in
                 print("\n\nRequest: \(response.request)")
                 print("\n\nResponse: \(response.response)")

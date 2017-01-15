@@ -32,14 +32,20 @@ class ATCourseDataBroker: ATDataBrokerBase {
     
     func checkInStudents(_ studentArray: Array<ATStudent>, forCourse: ATCourse) {
         var studentDict = [String: Any]()
-        var studentDictArray = [[String: Any]]()
+        var studentIDArray = [Int]()
 
         for student in studentArray {
-            studentDictArray.append(self.convertToDictionary(student))
+            studentIDArray.append(student.id)
         }
         
-        studentDict["studentArray"] = studentDictArray
+//        studentDict["studentArray"] = [["id":5, "firstName": "Chris", "lastName": "Burns"], ["id":7, "firstName": "Peer", "lastName": "Sangngern"]]
+        studentDict["studentIDArray"] = studentIDArray
         studentDict["courseID"] = forCourse.id
+        
+        let df = DateFormatter()
+        df.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
+        studentDict["classDate"] = df.string(from: Date())
         
         self.submitToEndPoint(ATSettingsAdapter.CheckInStudentsURI(), withJSONData: studentDict)
     }

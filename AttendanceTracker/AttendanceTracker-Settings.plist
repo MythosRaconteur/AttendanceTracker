@@ -7,7 +7,7 @@
 		<key>EnvironmentBasePRODURL</key>
 		<string>http://www.mythosproductions.com/AttendanceTracker/api/v1/</string>
 		<key>EnvironmentBaseDEVURL</key>
-		<string>http://www.mythosproductions.com/AttendanceTracker/api/v1/</string>
+		<string>http://localhost:8888/AttendanceTracker/api/v1/</string>
 		<key>EndPoints</key>
 		<dict>
 			<key>Groupon</key>
